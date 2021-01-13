@@ -1,0 +1,20 @@
+(defun absx (x)
+  (if (> x 0) x (- x))
+)
+
+(absx 0)
+
+(defun absz (x)
+  (cond
+    ((< x 0) (- x))
+    (1 x)))
+
+(absz -6)
+
+(and 1 6 5 NIL 8 9)
+
+(defun != (x y) (not (= x y)))
+(!= 80 80)
+
+(> 5 2)
+

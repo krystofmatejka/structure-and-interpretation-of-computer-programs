@@ -1,0 +1,11 @@
+(let ((str "Hello, world!"))
+(string-upcase str))
+
+(let ((x 1) (y 7)) (+ x y))
+
+(defparameter greeting "Hello from lisp")
+(print greeting)
+
+(defparameter radius 10)
+(* pi (* radius radius))
+
