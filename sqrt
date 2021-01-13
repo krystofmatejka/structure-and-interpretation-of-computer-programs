@@ -3,8 +3,8 @@
 (defun square (x) (* x x))
 
 
-(defun good-enough (guess x)
-	(< (abs (- (square guess) x)) 0.001))
+(defun good-enough (guess previous-guess x)
+	(< (abs (- previous-guess guess)) (* guess 0.01)))
 
 
 (defun average-of-two (x y)
@@ -15,19 +15,20 @@
 	(average-of-two guess (/ x guess)))
 
 
-(defun sqrt-iter (guess x)
-	(if (good-enough guess x)
+(defun sqrt-iter (guess previous-guess x)
+	(if (good-enough guess previous-guess x)
 		guess
-		(sqrt-iter (improve-guess guess x) x)
+		(sqrt-iter (improve-guess guess x) guess x)
 	))
 
+
 (defun sqrt-newton (x)
-	(sqrt-iter 1 x))
+	(sqrt-iter 1 2 x))
 
 
 (sqrt-newton 2)
 (sqrt-newton 9)
 (sqrt-newton 100)
 (sqrt-newton 666)
-(sqrt-newton 250705369)
+(sqrt-newton 25070536909365)
 
