@@ -1,13 +1,4 @@
-import {avg, divide, lt, subtract, square, xif, abs} from '../../lib.js'
-
-const goodEnough = (guess, x) => lt(abs(subtract(square(guess), x)), 0.001)
-
-const improveGuess = (guess, x) => avg(guess, divide(x, guess))
-
-const sqrtIter = (guess, x) =>
-    xif(goodEnough(guess, x),
-        () => guess,
-        () => sqrtIter(improveGuess(guess, x), x))
+import {avg, divide, lt, subtract, square, when, abs} from '../../lib.js'
 
 /**
  The importance of this decomposition strategy is not simply that
@@ -17,4 +8,14 @@ const sqrtIter = (guess, x) =>
  complishes an identiﬁable task that can be used as a module in deﬁning
  other procedures.
  */
+
+const goodEnough = (guess, x) => lt(abs(subtract(square(guess), x)), 0.001)
+
+const improveGuess = (guess, x) => avg(guess, divide(x, guess))
+
+const sqrtIter = (guess, x) =>
+    when(goodEnough(guess, x),
+        () => guess,
+        () => sqrtIter(improveGuess(guess, x), x))
+
 export const sqrt = (x) => sqrtIter(1.0, x)

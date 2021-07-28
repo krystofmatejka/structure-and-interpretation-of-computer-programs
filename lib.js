@@ -11,13 +11,13 @@ export const lt = (x, y) => x < y
 
 export const cond = (...args) => {
     for (const [p, e] of args) {
-        if (p) {
+        if (p()) {
             return e
         }
     }
 }
 
-export const xif = (p, c, a) => (p) ? c() : a()
+export const when = (p, c, a) => (p) ? c() : a()
 
 export const and = (...args) => args.reduce((p, c) => !!(p && c))
 export const or = (...args) => args.reduce((p, c) => !!(p || c))
@@ -29,7 +29,7 @@ export const lte = (x, y) => or(gt(x, y), eq(x, y))
 export const avg = (...args) => divide(sum(...args), args.length)
 
 export const abs = (x) => cond(
-    [gt(x, 0), x],
-    [eq(x, 0), 0],
-    [lt(x, 0), -x]
+    [() => gt(x, 0), x],
+    [() => eq(x, 0), 0],
+    [() => lt(x, 0), -x]
 )
