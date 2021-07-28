@@ -13,9 +13,7 @@ const goodEnough = (guess, x) => lt(abs(subtract(square(guess), x)), 0.001)
 
 const improveGuess = (guess, x) => avg(guess, divide(x, guess))
 
-const sqrtIter = (guess, x) =>
+export const sqrt = (x, guess = 1.0) =>
     when(goodEnough(guess, x),
         () => guess,
-        () => sqrtIter(improveGuess(guess, x), x))
-
-export const sqrt = (x) => sqrtIter(1.0, x)
+        () => sqrt(x, improveGuess(guess, x)))
