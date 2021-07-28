@@ -6,7 +6,6 @@ import {divide, multiply, sum, subtract} from '../../lib.js'
     5 + 4 + (2 − (3 − (6 + 5 / 4 )))
     --------------------------------
          3 * (6 − 2) * (2 − 7)
-
 */
 
 export const result = divide(
