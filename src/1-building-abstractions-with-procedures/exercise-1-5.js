@@ -31,4 +31,5 @@ const _test = (x, y) => when(eq(x, 0), () => 0, () => y)
     The result will be 0
 */
 
+
 test('exercise 1.5',  () => undefined)
