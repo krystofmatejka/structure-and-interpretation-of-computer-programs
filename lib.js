@@ -9,13 +9,7 @@ export const gt = (x, y) => x > y
 export const eq = (x, y) => x === y
 export const lt = (x, y) => x < y
 
-export const cond = (...args) => {
-    for (const [p, e] of args) {
-        if (p()) {
-            return e
-        }
-    }
-}
+export const cond = (...args) => (args.find(([p]) => p()) ?? [undefined, false])[1]
 
 export const when = (p, c, a) => (p) ? c() : a()
 

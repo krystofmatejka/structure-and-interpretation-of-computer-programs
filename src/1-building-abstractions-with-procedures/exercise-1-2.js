@@ -8,7 +8,7 @@ import {divide, multiply, sum, subtract} from '../../lib.js'
          3 * (6 − 2) * (2 − 7)
 */
 
-export const result = divide(
+const result = divide(
     sum(5, 4, subtract(2, subtract(3, sum(6, divide(4, 5))))),
     multiply(3, subtract(6, 2), subtract(2, 7))
 )

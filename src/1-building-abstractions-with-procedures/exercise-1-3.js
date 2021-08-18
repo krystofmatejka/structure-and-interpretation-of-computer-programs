@@ -8,7 +8,7 @@ import {when, gt, sum, square} from '../../lib.js'
 
 const findBigger = (x, y) => when(gt(x, y), () => x, () => y)
 
-export const result = (x, y, z) => sum(
+const result = (x, y, z) => sum(
     square(findBigger(x, y)),
     square(findBigger(y, z))
 )
