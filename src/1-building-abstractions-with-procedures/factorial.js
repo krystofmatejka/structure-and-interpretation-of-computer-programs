@@ -1,18 +1,18 @@
 import {when, eq, multiply, subtract, gt, sum} from '../../lib'
 
-const factorial = (x) => when(
+const factorial1 = (x) => when(
     eq(x, 1),
     () => 1,
     () => multiply(
         x,
-        factorial(subtract(x, 1))
+        factorial1(subtract(x, 1))
     )
 )
 
 test('factorial', () => {
-    expect(factorial(1)).toBe(1)
-    expect(factorial(5)).toBe(120)
-    expect(factorial(10)).toBe(3_628_800)
+    expect(factorial1(1)).toBe(1)
+    expect(factorial1(5)).toBe(120)
+    expect(factorial1(10)).toBe(3_628_800)
 })
 
 const factorial2 = (x) => {
