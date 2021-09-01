@@ -42,22 +42,19 @@ const sumHop = (a, b, term, next) => when(
 )
 
 const sumIntegers2 = (a, b) => sumHop(
-    a,
-    b,
+    a, b,
     identity,
     (a) => sum(a, 1)
 )
 
 const sumCubes2 = (a, b) => sumHop(
-    a,
-    b,
+    a, b,
     (a) => cube(a),
     (a) => sum(a, 1)
 )
 
 const sumPi2 = (a, b) => sumHop(
-    a,
-    b,
+    a, b,
     (a) => divide(1, multiply(a, sum(a, 2))),
     (a) => sum(a, 4)
 )
