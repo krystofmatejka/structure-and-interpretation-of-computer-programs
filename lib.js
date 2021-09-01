@@ -27,3 +27,5 @@ export const abs = (x) => cond(
     [() => eq(x, 0), () => 0],
     [() => lt(x, 0), () => -x]
 )
+
+export const identity = (a) => a
